@@ -1,0 +1,51 @@
+<!-- EECS 348 Lab 6 -->
+
+<!-- Created by Evan Rogerson -->
+<!-- Created Firday the 25th of October -->
+
+<!-- specify document type -->
+<!doctype html>
+    <html>
+        <!-- header -->
+        <head>
+            <!-- set characters to english alphabet -->
+            <meta charset="utf-8">
+            <!-- set the tab title -->
+
+            <title >Evan Rogerson's PHP Multiplication Table</title>
+
+        </head>
+        
+
+        <body onload="checkPasswords()" > <!-- start main website body. When the website first load immitate clicking the first tab on the website. -->
+
+            <form action="/action_page.php"> <!-- code to start html actions-->
+                <p >Enter your number: <input type="text" id = "input1" > </p> <!-- ask for the password 1-->
+                <p id="line"></p>
+            </form><!-- cend html action-->
+            
+
+            <script> //begin javascript code
+
+                //function to set all of the buttons to red (the default colour)
+                function checkPasswords(){
+                    var line = document.getElementById("line"); //create a varaible in javascript to represent the HTML varaible for the text
+                    var input1 = document.getElementById("input1").value; //create a varaible in javascript to represent the HTML varaible for the passowrd 1
+
+                    var count = 1; //set count varialbe
+                    line.innerHTML = "" //reset the line
+                    while(count <= input1){ //count all the way through all the nujmers 1 through the number itself
+                        line.innerHTML  += "<br>" + count + " * "+ input1 + " = "+ count*input1; //print out the multiplication
+                        count++; //move to next number
+                    }
+                    
+                    
+                }
+
+                document.getElementById("input1").addEventListener("input", checkPasswords); //update the text everytime the passwordss are updated
+                                              
+                                        
+            </script> <!-- and javascript code-->
+        </body> <!-- end main website body -->
+
+    </html>
