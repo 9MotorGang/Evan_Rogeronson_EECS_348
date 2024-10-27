@@ -17,32 +17,55 @@
         </head>
         
 
-        <body onload="checkPasswords()" > <!-- start main website body. When the website first load immitate clicking the first tab on the website. -->
+        <body onload="createChart()" > <!-- start main website body. When the website first load immitate clicking the first tab on the website. -->
 
             <form action="/action_page.php"> <!-- code to start html actions-->
-                <p >Enter your number: <input type="text" id = "input1" > </p> <!-- ask for the password 1-->
-                <p id="line"></p>
+                <p >Enter your number: <input type="text" id = "input1" value="1"> </p> <!-- ask for the password 1-->
+                <p id="chart"></p>
             </form><!-- cend html action-->
             
 
             <script> //begin javascript code
 
                 //function to set all of the buttons to red (the default colour)
-                function checkPasswords(){
-                    var line = document.getElementById("line"); //create a varaible in javascript to represent the HTML varaible for the text
+                function createChart(){
+                    var chart = document.getElementById("chart"); //create a varaible in javascript to represent the HTML varaible for the text
                     var input1 = document.getElementById("input1").value; //create a varaible in javascript to represent the HTML varaible for the passowrd 1
 
                     var count = 1; //set count varialbe
-                    line.innerHTML = "" //reset the line
-                    while(count <= input1){ //count all the way through all the nujmers 1 through the number itself
-                        line.innerHTML  += "<br>" + count + " * "+ input1 + " = "+ count*input1; //print out the multiplication
-                        count++; //move to next number
+                    chart.innerHTML = "" //reset the chart
+
+                    var table = "<table border='1' cellpadding='1' style='border-collapse: collapse; text-align: center;'>"; //set deatils regarding table format
+
+                    var count2 = 1; //set count varialbe
+                    table += "<tr><td></td>"; //create empty square in top left
+
+                    while(count2 <=input1){ //create bold top row
+                        table += "<td><b>" + count * count2 + "</b></td>";
+
+                        count2++;
                     }
-                    
+                    table += "</tr>";                         
+
+                    while(count <= input1){ //count all the way through all the nujmers 1 through the number itself
+                        count2 = 1; //set count varialbe\
+                        table += "<tr>"; //create bold let coloulmn
+                        table += "<td><b>" + count * count2 + "</b></td>";
+
+                        while(count2 <=input1){ //calulate square position and move to next
+                            table += "<td>" + count * count2 + "</td>";
+
+                            count2++;
+                        }
+                        table += "</tr>";            //end line             
+                        count++; //move to next row
+                    }
+                    table += "</table>";
+                    chart.innerHTML = table; //set the html to be the table
                     
                 }
 
-                document.getElementById("input1").addEventListener("input", checkPasswords); //update the text everytime the passwordss are updated
+                document.getElementById("input1").addEventListener("input", createChart); //update the text everytime the passwordss are updated
                                               
                                         
             </script> <!-- and javascript code-->

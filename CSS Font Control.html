@@ -24,10 +24,14 @@
             </p>        
             
             <form action="/action_page.php"> <!-- code to start html actions-->
-                <p style="color: red">Red (0-255): <input type="text" id = "redColour" style="color: red" value="0"> </p> <!-- ask for the specific colour-->
-                <p style="color: green">Green (0-255): <input type="text" id = "greenColour" style="color: green"  value="0"> </p> <!-- ask for the specific colour-->
-                <p style="color: blue">Blue (0-255): <input type="text" id = "blueColour" style="color: blue"  value="0"> </p> <!-- ask for the specific colour-->
+                <p style="color: red">Text Red (0-255): <input type="text" id = "redColour" style="color: red" value="0"> </p> <!-- ask for the specific colour-->
+                <p style="color: green">Text Green (0-255): <input type="text" id = "greenColour" style="color: green"  value="0"> </p> <!-- ask for the specific colour-->
+                <p style="color: blue">Text Blue (0-255): <input type="text" id = "blueColour" style="color: blue"  value="0"> </p> <!-- ask for the specific colour-->
                 <p style="color: black">Border Width: <input type="text" id = "widthBorder"  value="1"> </p> <!-- ask for the specific colour-->
+                <p style="color: red">Border Red (0-255): <input type="text" id = "redBorder" style="color: red" value="0"> </p> <!-- ask for the specific colour-->
+                <p style="color: green">Border Green (0-255): <input type="text" id = "greenBorder" style="color: green" value="0"> </p> <!-- ask for the specific colour-->
+                <p style="color: blue">Border Blue (0-255): <input type="text" id = "blueBorder" style="color: blue" value="0"> </p> <!-- ask for the specific colour-->
+
 
             </form><!-- cend html action-->
             
@@ -41,17 +45,23 @@
                     var greenColour = document.getElementById("greenColour"); //create a varaible in javascript to represent the HTML varaible for the green
                     var blueColour = document.getElementById("blueColour"); //create a varaible in javascript to represent the HTML varaible for the blue
                     var widthBorder = document.getElementById("widthBorder"); //create a varaible in javascript to represent the HTML varaible for the border width
+                    var redBorder = document.getElementById("redBorder"); //create a varaible in javascript to represent the HTML varaible for the red border
+                    var greenBorder = document.getElementById("greenBorder"); //create a varaible in javascript to represent the HTML varaible for the green border
+                    var blueBorder = document.getElementById("blueBorder"); //create a varaible in javascript to represent the HTML varaible for the blue border                   
 
                     text.style.color = "rgb(" + redColour.value + ", " + greenColour.value + ", " + blueColour.value + ")"; //set the colour of the text
 
-                    text.style.border = widthBorder.value + "px solid rgb(" + redColour.value + ", " + greenColour.value + ", " + blueColour.value + ")";//change the border width and colour
+                    text.style.border = widthBorder.value + "px solid rgb(" + redBorder.value + ", " + greenBorder.value + ", " + blueBorder.value + ")";//change the border width and colour
                                                   
                 }
 
                 document.getElementById("redColour").addEventListener("input", changeColour); //update the colours everytime red is updated        
                 document.getElementById("greenColour").addEventListener("input", changeColour); //update the colours everytime green is updated        
                 document.getElementById("blueColour").addEventListener("input", changeColour);     //update the colours everytime blue is updated          
-                document.getElementById("widthBorder").addEventListener("input", changeColour);     //update the colours everytime width is updated                                                  
+                document.getElementById("widthBorder").addEventListener("input", changeColour);     //update the colours everytime width is updated            
+                document.getElementById("redBorder").addEventListener("input", changeColour); //update the colours everytime red is updated        
+                document.getElementById("greenBorder").addEventListener("input", changeColour); //update the colours everytime green is updated        
+                document.getElementById("blueBorder").addEventListener("input", changeColour);     //update the colours everytime blue is updated                                                           
                                         
             </script> <!-- and javascript code-->
         </body> <!-- end main website body -->
